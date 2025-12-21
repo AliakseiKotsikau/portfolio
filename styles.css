@@ -10,6 +10,9 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f5f5f7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
@@ -22,7 +25,7 @@ body {
 header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 3rem 0;
+    padding: 1.5rem 0;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
@@ -55,10 +58,26 @@ nav {
     opacity: 1;
 }
 
+.back-link-hidden {
+    visibility: hidden;
+}
+
 /* Main Content */
 main {
     padding: 3rem 0;
     min-height: calc(100vh - 300px);
+    flex: 1;
+}
+
+main .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.apps-section {
+    margin-top: 2rem;
 }
 
 .apps-section h2 {
@@ -70,7 +89,7 @@ main {
 /* App Cards */
 .apps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
 }
 
@@ -150,11 +169,16 @@ main {
     align-items: start;
 }
 
+.app-screenshot {
+    background: transparent;
+}
+
 .app-screenshot img {
     width: 100%;
     max-width: 350px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.15));
+    background: transparent;
 }
 
 .app-content h2 {
@@ -175,6 +199,7 @@ main {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 1.5rem;
+    white-space: pre-line;
 }
 
 .features-list {
@@ -212,6 +237,17 @@ main {
 
 .app-links {
     margin-top: 2rem;
+}
+
+.app-footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #f5f5f7;
+    border-radius: 12px;
 }
 
 .privacy-link {
@@ -274,7 +310,7 @@ main {
 footer {
     background: #1d1d1f;
     color: white;
-    padding: 2rem 0;
+    padding: 1rem 0;
     text-align: center;
     margin-top: 3rem;
 }
@@ -294,12 +330,20 @@ footer a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    header {
+        padding: 1rem 0;
+    }
+
     header h1 {
         font-size: 2rem;
     }
 
     .tagline {
         font-size: 1rem;
+    }
+
+    footer {
+        padding: 0.75rem 0;
     }
 
     .app-detail-grid {
