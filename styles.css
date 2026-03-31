@@ -99,6 +99,8 @@ main .container {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .app-card:hover {
@@ -114,6 +116,9 @@ main .container {
 
 .app-info {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .app-info h3 {
@@ -126,6 +131,11 @@ main .container {
     color: #666;
     margin-bottom: 1rem;
     line-height: 1.5;
+}
+
+.app-card .app-info .btn {
+    margin-top: auto;
+    align-self: flex-start;
 }
 
 /* Buttons */
@@ -260,6 +270,20 @@ main .container {
     text-decoration: underline;
 }
 
+.app-gallery {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.app-gallery img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
 /* Privacy Policy Page */
 .privacy-content {
     background: white;
@@ -355,8 +379,18 @@ footer a:hover {
         max-width: 100%;
     }
 
+    .app-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
     .apps-grid {
         grid-template-columns: 1fr;
+    }
+
+    .app-footer-actions {
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .privacy-content {
